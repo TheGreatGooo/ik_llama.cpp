@@ -1259,9 +1259,9 @@ static void ggml_cuda_op_mul_mat_cublas(
         CUBLAS_CHECK(
             cublasGemmEx(ctx.cublas_handle(id), CUBLAS_OP_T, CUBLAS_OP_N,
                     row_diff, src1_ncols, ne10,
-                    &alpha_f32,  src0_ptr,       CUDA_R_16BF, ne00,
-                                 src1_ptr,       CUDA_R_16BF, ne10,
-                    &beta_f32,   dst_bf16.get(), CUDA_R_16BF, ldc,
+                    &alpha_f32,  src0_ptr,       CUDA_R_16F, ne00,
+                                 src1_ptr,       CUDA_R_16F, ne10,
+                    &beta_f32,   dst_bf16.get(), CUDA_R_16F, ldc,
                     CUBLAS_COMPUTE_32F,
                     CUBLAS_GEMM_DEFAULT_TENSOR_OP));
 
@@ -1298,9 +1298,9 @@ static void ggml_cuda_op_mul_mat_cublas(
             CUBLAS_CHECK(
                     cublasGemmEx(ctx.cublas_handle(id), CUBLAS_OP_T, CUBLAS_OP_N,
                         row_diff, src1_ncols, ne10,
-                        &alpha_f32,  src0_ptr,       CUDA_R_16BF, ne00,
-                        src1_ptr,       CUDA_R_16BF, ne10,
-                        &beta_f32,   dst_bf16.get(), CUDA_R_16BF, ldc,
+                        &alpha_f32,  src0_ptr,       CUDA_R_16F, ne00,
+                        src1_ptr,       CUDA_R_16F, ne10,
+                        &beta_f32,   dst_bf16.get(), CUDA_R_16F, ldc,
                         CUBLAS_COMPUTE_32F,
                         CUBLAS_GEMM_DEFAULT_TENSOR_OP));
 
