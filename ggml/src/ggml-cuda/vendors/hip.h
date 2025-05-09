@@ -116,7 +116,7 @@
 #ifndef __has_builtin
     #define __has_builtin(x) 0
 #endif
-typedef hip_bfloat16 nv_bfloat16;
+typedef __hip_bfloat16 nv_bfloat16;
 
 typedef int8_t int8x4_t __attribute__((ext_vector_type(4)));
 typedef uint8_t uint8x4_t __attribute__((ext_vector_type(4)));
