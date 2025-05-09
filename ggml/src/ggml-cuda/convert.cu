@@ -1074,13 +1074,13 @@ static __global__ void convert_unary(const void * __restrict__ vx, dst_t * __res
 
 template <typename dst_t>
 static __global__ void convert_from_bf16(const nv_bfloat16 * __restrict__ x, dst_t * __restrict__ y, const int64_t k) {
-   const int64_t i = (int64_t)blockDim.x*blockIdx.x + threadIdx.x;
+    const int64_t i = (int64_t)blockDim.x*blockIdx.x + threadIdx.x;
 
-   if (i >= k) {
-       return;
-   }
+    if (i >= k) {
+        return;
+    }
 
-   y[i] = __bfloat162float(x[i]);
+    y[i] = __bfloat162float(x[i]);
 }
 
 static __global__ void convert_to_bf16(const float * __restrict__ x, nv_bfloat16 * __restrict__ y, const int64_t k) {
